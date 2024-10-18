@@ -1,36 +1,34 @@
 import { useState } from "react";
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
+
 import FormInput from "../form-input/form-input.component";
-import './sign-up-form.styles.scss'
+import "./sign-up-form.styles.scss";
 import Button from "../button/button-component";
+import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebaseAuth";
+import { createUserDocumentFromAuth } from "../../utils/firebase/firebaseFirestore";
 
 const defaultFormFields = {
   displayName: "",
   email: "",
   password: "",
-  confirmPassword: ""
-}
+  confirmPassword: "",
+};
 
 const SignUpForm = () => {
-
-  const [formFields, setFormFields] = useState(
-    defaultFormFields
-  );
-  const { displayName, email, password, confirmPassword } =
-    formFields;
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
   console.log(formFields);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormFields({...formFields, [name]: value})
-  }
+    setFormFields({ ...formFields, [name]: value });
+  };
 
   const resetForm = () => {
     setFormFields(defaultFormFields);
-  }
+  };
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // confirm password match wth confirm password
@@ -40,16 +38,18 @@ const SignUpForm = () => {
     }
 
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(email, password);
+      const { user } = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
       console.log(user);
 
       await createUserDocumentFromAuth(user, { displayName });
       resetForm();
-
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <div className="sign-up-container">
@@ -91,7 +91,9 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button type="submit" buttonType="inverted">Submit</Button>
+        <Button type="submit" buttonType="inverted">
+          Submit
+        </Button>
       </form>
     </div>
   );

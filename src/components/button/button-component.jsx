@@ -1,18 +1,9 @@
-/**
-default button 
-
-inverted button
-
- google button
-
- */
-
-import './button.styles.scss'
+import "./button.styles.scss";
 
 const BUTTON_TYPE_CLASSESS = {
-  google: 'google-sign-in',
-  inverted: 'inverted',
-}
+  google: "google-sign-in",
+  inverted: "inverted",
+};
 
 const Button = ({ children, buttonType, ...otherProps }) => {
   return (

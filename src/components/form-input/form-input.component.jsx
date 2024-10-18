@@ -1,8 +1,6 @@
-import './form-input.styles.scss'
-
+import "./form-input.styles.scss";
 
 const FormInput = ({ lable, ...otherProps }) => {
-
   return (
     <div className="group">
       <input {...otherProps} className="form-input" />
