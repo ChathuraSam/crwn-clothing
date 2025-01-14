@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  background-color: rgb(187, 189, 248);
+  z-index: 1;
 
   .logo-container {
     height: 100%;

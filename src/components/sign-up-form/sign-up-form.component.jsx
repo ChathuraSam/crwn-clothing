@@ -33,7 +33,7 @@ const SignUpForm = () => {
 
     // confirm password match wth confirm password
     if (password !== confirmPassword) {
-      alert("Pasword and COnfirm password not match");
+      alert("Pasword and Confirm password not match");
       return;
     }
 
