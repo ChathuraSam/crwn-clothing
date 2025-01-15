@@ -18,6 +18,11 @@ const Navigation = () => {
             <CrownLogo className="logo" />
           </div>
         </Link>
+        <Link className="logo-container" to="shop">
+          <div>
+            <h2>SHOP</h2>
+          </div>
+        </Link>
         <div className="nav-links-container">
           {currentUser ? (
             <span>Welcome {currentUser?.email}</span>
