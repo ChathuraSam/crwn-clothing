@@ -27,7 +27,6 @@ const auth = getAuth();
 export const signInWithGooglePopup = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
-    console.log(result);
     return result;
   } catch (error) {
     console.error("Error during sign-in with Google Popup:", error);
@@ -42,7 +41,6 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   const response = await signInWithEmailAndPassword(auth, email, password);
-  console.log(response);
   return response;
 };
 
